@@ -26,7 +26,7 @@ def lcs_recursive(s1, s2):
             if s1[i] == s2[j]:
                 return dp(i-1, j-1) + 1
             else:
-                return max(dp(i-1, j),dp(i, j-1))
+                return max(dp(i-1, j), dp(i, j-1))
     
     return dp(len1-1, len2-1)
 
