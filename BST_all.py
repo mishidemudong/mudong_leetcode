@@ -16,6 +16,8 @@ def insertIntoBST(root, val):
     #找到空位置插入新节点
     if root == None:
         return TreeNode(val)
+    
+    
     if root.val == val:
         return root
     
@@ -26,11 +28,13 @@ def insertIntoBST(root, val):
         root.left = insertIntoBST(root.left, val)
     
     return root
+    
 
 def preorderBST(root):
     preorderlist = []
     
     preorderlist.append(root.val)
+    
     preorderBST(root.left)
     preorderBST(root.right)
     
@@ -57,6 +61,8 @@ def postorderBST(root):
     return postorderlist
 
 
+
+
 def createBST(vallist):
     if vallist == []:
         return None
@@ -69,8 +75,6 @@ def createBST(vallist):
         BSTTree = insertIntoBST(BSTTree, val)
         
     return BSTTree
-
-#以手动方式建立一棵树，根据题目要求建树，因为树的结果不唯一。
 
 vallist = [5,3,6,2,4,7]
 
