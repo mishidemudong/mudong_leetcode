@@ -57,3 +57,17 @@ def lcs_dp(s1, s2):
 s1 = "abcde"
 s2 = "ace"
 print(lcs_dp(s1, s2))
+
+a = [1,2,3,4]
+b = [1,2]
+
+from itertools import zip_longest
+for x, y in zip_longest(a,b):
+    print(x, y)
+
+c = set(a)
+d = set(b)
+for x, y in zip_longest(c,d):
+    print(x, y)
+
+
