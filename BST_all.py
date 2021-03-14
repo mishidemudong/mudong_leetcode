@@ -11,7 +11,6 @@ class TreeNode:
         self.left = left
         self.right = right
 
-
 def insertIntoBST(root, val):
     #找到空位置插入新节点
     if root == None:
