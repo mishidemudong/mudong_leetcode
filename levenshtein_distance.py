@@ -16,7 +16,15 @@ def Levenshtein_Distance(str1, str2):
     :param str2
     :return:
     """
-    matrix = [[ i + j for j in range(len(str2) + 1)] for i in range(len(str1) + 1)]
+    ##补充base情形
+    if len(str1) == 0:
+        return len(str2)
+    elif len(str2) == 0:
+        return len(str1)
+    elif str1 == str2:
+        return 0
+
+    matrix = [[i + j for j in range(len(str2) + 1)] for i in range(len(str1) + 1)]
  
     for i in range(1, len(str1)+1):
         for j in range(1, len(str2)+1):

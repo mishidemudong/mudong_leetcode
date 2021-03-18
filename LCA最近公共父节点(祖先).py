@@ -29,7 +29,7 @@ class TreeNode:
 
 def lowestCommonAncestor(root, p, q):
 
-
+    ###先序框架遍历二叉树
     # LCA 问题<br>        #利用先序遍历，寻找这两个节点
     if not root or root == p or root == q:  # 判断这三种情况，找到节点或者没有，若存在这个节点，则返回这个节点，若没有返回None
         return root
@@ -38,6 +38,12 @@ def lowestCommonAncestor(root, p, q):
     left = lowestCommonAncestor(root.left, p, q)
     right = lowestCommonAncestor(root.right, p, q)
 
+
+
+    #找到root,以及左右两个节点，需要根据条件判断是否符合。
+    # 1 左右都不为空，那么说明找到，返回root
+    # 2 左右都为空，返回None
+    # 3 左右哪个不为空，则返回谁
     if left is not None  and  left is not  None:
         return root
 

@@ -15,8 +15,7 @@ def insertIntoBST(root, val):
     #找到空位置插入新节点
     if root == None:
         return TreeNode(val)
-    
-    
+
     if root.val == val:
         return root
     
@@ -28,11 +27,17 @@ def insertIntoBST(root, val):
     
     return root
     
-
+##先序遍历框架，也是快速排序的框架
 def preorderBST(root):
     preorderlist = []
-    
+
+    if root is None:
+        return
     preorderlist.append(root.val)
+
+    '''
+    快排：先选pivot,再去low,high 排序
+    '''
     
     preorderBST(root.left)
     preorderBST(root.right)
@@ -41,26 +46,52 @@ def preorderBST(root):
 
 def midorderBST(root):
     midorderlist = []
-
+    if root is None:
+        return
     midorderBST(root.left)
     midorderlist.append(root.val)
     midorderBST(root.right)
     
     return midorderlist
 
+##后序遍历框架，也是归并排序的框架
 def postorderBST(root):
     postorderlist = []
 
+    if root is None:
+        return
+
     postorderBST(root.left)
-    
     postorderBST(root.right)
-    
     postorderlist.append(root.val)
+
+    '''
+    归并框架 merge
+    '''
+
     
     return postorderlist
 
+###层序遍历， 也是BFS的框架，比较重要的遍历方式
+class Solution:
+    def levelOrder(self, root: TreeNode) -> List[List[int]]:
 
+        result = [[]]
 
+        def level(node, levelc):
+
+            if node is None:
+                return
+            else:
+                result[levelc - 1].append(node.val)
+                if len(result) == levelc:
+                    result.append([])
+                level(node.left, levelc + 1)
+                level(node.right, levelc + 1)
+
+        level(root, 1)
+
+        return result
 
 def createBST(vallist):
     if vallist == []:
