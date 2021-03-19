@@ -31,6 +31,17 @@ def permute(nums):
             # print("item", item)
             path.append(item)
             backtrack(path, choose_list[:choose_list.index(item)] + choose_list[choose_list.index(item)+1:])
+
+            path.pop()
+
+        ###原始方法，删除和恢复
+        for item in choose_list:
+            # print("item", item)
+            path.append(item)
+            index_ = choose_list.index(item)
+            choose_list.remove(item)
+            backtrack(path, choose_list)
+            choose_list.insert(index_,item)
             path.pop()
 
 
