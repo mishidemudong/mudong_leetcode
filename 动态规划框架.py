@@ -24,7 +24,7 @@ def dp(m_arr,n_arr):
     for i in range(m - 1, ):
         for j in range(n - 1, ):
             ###状态转移方程
-            dp[i][j] =
+            dp[i][j] = 1
             #通过dp的遍历方向：dp[i-1][j] ,dp[i-1][j-1], d[i][j-1],dp[i+1][j] ,dp[i+1][j+1], d[i][j+1] 来计算dp[i][j]
             if m_arr[j] == n_arr[j]:
                 dp[i][j] = max(dp[i + 1][j + 1],dp[][])
