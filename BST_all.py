@@ -111,3 +111,36 @@ vallist = [5,3,6,2,4,7]
 tree1 = createBST(vallist)
 
 print()
+
+##求完全二叉树的叶子数
+###O(N)复杂度
+def countNodes(root):
+    if root == None:
+        return 0
+    return 1 + countNodes(root.left) + countNodes(root.right)
+
+import math
+##满二叉树的计算
+def countNodes(root):
+    h = 0
+
+    while root.left:
+        root = root.left
+        h += 1
+    #节点总数就是 2^h - 1
+    return math.pow(2, h) - 1
+
+
+    return 1 + countNodes(root.left) + countNodes(root.right)
+
+##二叉搜索树的查找
+def searchBST(self, root: TreeNode, val: int) -> TreeNode:
+    if root == None:
+        return None
+    elif root.val == val:
+        return root
+
+    if val < root.val:
+        return self.searchBST(root.left, val)
+    elif val > root.val:
+        return self.searchBST(root.right, val)

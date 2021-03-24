@@ -34,6 +34,25 @@ def dp(m_arr,n_arr):
 
     return dp[m-1][n-1]
 
+array = []
+def dp(m_arr):
+
+    m = len(m_arr)
+
+    table= [0]* m
+    count = 0
+    for i in range(m):
+        for j in range(m-i,m):
+            if m_arr[i] < m_arr[j]:
+                count += 1
+                table[i] = count
+                array.append(m_arr[j])
+            else:
+                dp()
+
+
+
+
 
 
 
