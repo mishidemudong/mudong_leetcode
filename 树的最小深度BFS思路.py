@@ -6,6 +6,10 @@ Created on Tue Feb  9 16:18:18 2021
 @author: liang
 """
 
+'''
+    叶子节点就是深度的最后一个节点，叶子节点的性质，左右子孩子为空
+'''
+
 # Definition for a binary tree node.
 class TreeNode:
     def __init__(self, val=0, left=None, right=None):

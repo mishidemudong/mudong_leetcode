@@ -17,10 +17,13 @@ class Solution:
             # 在中序遍历中定位根节点
             inorder_root = index[preorder[preorder_root]]
 
+            '建立根节点'
             # 先把根节点建立出来
             root = TreeNode(preorder[preorder_root])
             # 得到左子树中的节点数目
             size_left_subtree = inorder_root - inorder_left
+
+            '递归地建立左右子树'
             # 递归地构造左子树，并连接到根节点
             # 先序遍历中「从 左边界+1 开始的 size_left_subtree」个元素就对应了中序遍历中「从 左边界 开始到 根节点定位-1」的元素
             root.left = myBuildTree(preorder_left + 1, preorder_left + size_left_subtree, inorder_left,

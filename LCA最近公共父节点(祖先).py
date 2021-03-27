@@ -44,10 +44,10 @@ def lowestCommonAncestor(root, p, q):
     # 1 左右都不为空，那么说明找到，返回root
     # 2 左右都为空，返回None
     # 3 左右哪个不为空，则返回谁
-    if left is not None  and  left is not  None:
+    if left is not None and right is not None:
         return root
 
-    if left is None  and  left is None:
+    if left is None and left is None:
         return None
 
     if left is None:
