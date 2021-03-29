@@ -30,3 +30,23 @@ def lengthOfLIS(nums) :
                 dp[i] = max(dp[i], dp[j] + 1)
 
     return max(dp)
+
+##暴力解法,还有点问题，没有ac
+def lengthOfLISbao(nums):
+
+    if len(set(nums)) == 1:
+        return 1
+
+    result = []
+
+    for i in range(len(nums)):
+        tmp = [nums[i]]
+        index = 0
+        for j in range(i + 1, len(nums)):
+
+            if nums[j] >= tmp[index]:
+                tmp.append(nums[j])
+                index += 1
+        result.append(len(tmp))
+
+    return max(result)
