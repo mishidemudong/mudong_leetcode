@@ -17,6 +17,7 @@ class Solution:
 
         root = TreeNode(max_num)
 
+        ####注意list的左右边界问题，左闭右开
         root.left = self.constructMaximumBinaryTree(nums[:max_index])
         root.right = self.constructMaximumBinaryTree(nums[max_index +1:])
 
