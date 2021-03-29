@@ -5,6 +5,7 @@ Created on Wed Feb 10 16:40:51 2021
 
 @author: liang
 """
+
 class TreeNode:
     def __init__(self, val=0, left=None, right=None):
         self.val = val
