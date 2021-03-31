@@ -45,6 +45,7 @@ def preorderBST(root):
     
     return preorderlist
 
+#二叉搜索树的中续遍历是升序的数组#####
 def midorderBST(root):
     midorderlist = []
     if root is None:
