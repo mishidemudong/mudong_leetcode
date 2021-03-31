@@ -33,11 +33,11 @@ class Solution:
             if left > right:
                 return None
 
-            mid = (lef t +right) // 2
+            mid = (left +right) // 2
 
             root = TreeNode(nums[mid])
-            root.left = preorder(left, mi d -1)
-            root.right = preorder(mi d +1, right)
+            root.left = preorder(left, mid -1)
+            root.right = preorder(mid +1, right)
 
             return root
 
