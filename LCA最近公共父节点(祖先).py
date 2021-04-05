@@ -34,11 +34,8 @@ def lowestCommonAncestor(root, p, q):
     if not root or root == p or root == q:  # 判断这三种情况，找到节点或者没有，若存在这个节点，则返回这个节点，若没有返回None
         return root
 
-
     left = lowestCommonAncestor(root.left, p, q)
     right = lowestCommonAncestor(root.right, p, q)
-
-
 
     #找到root,以及左右两个节点，需要根据条件判断是否符合。
     # 1 左右都不为空，那么说明找到，返回root
