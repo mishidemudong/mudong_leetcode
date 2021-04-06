@@ -45,6 +45,7 @@ def preorderBST(root):
     
     return preorderlist
 
+#二叉搜索树的中续遍历是升序的数组#####
 def midorderBST(root):
     midorderlist = []
     if root is None:
@@ -76,9 +77,7 @@ def postorderBST(root):
 ###层序遍历， 也是BFS的框架，比较重要的遍历方式
 class Solution:
     def levelOrder(self, root: TreeNode) -> List[List[int]]:
-
         result = [[]]
-
         def level(node, levelc):
 
             if node is None:
@@ -93,6 +92,33 @@ class Solution:
         level(root, 1)
 
         return result
+
+###层序遍历进阶，之字形遍历
+class Solution:
+    def zigzagLevelOrder(self, root: TreeNode) -> List[List[int]]:
+
+        if root is None:
+            return []
+        result = [[]]
+        def level_o(node, level):
+            if node is None:
+                return
+
+            result[level - 1].append(node.val)
+            if len(result) == level and (node.left or node.right):
+                result.append([])
+
+            if level % 2 == 0:
+                level_o(node.left, level + 1)
+                level_o(node.right, level + 1)
+            else:
+                level_o(node.right, level + 1)
+                level_o(node.left, level + 1)
+
+        level_o(root, 1)
+
+        return result
+
 
 def createBST(vallist):
     if vallist == []:
