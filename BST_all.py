@@ -56,6 +56,20 @@ def midorderBST(root):
     
     return midorderlist
 
+    ##反向中续遍历，从大到小，第K大
+    midorderlist = []
+    index_ = 0
+    if root is None:
+        return
+    midorderBST(root.right)
+    midorderlist.append(root.val)
+    if index_ == N:
+        return node
+    index_ += 1
+    midorderBST(root.left)
+
+    return midorderlist
+
 ##后序遍历框架，也是归并排序的框架
 def postorderBST(root):
     postorderlist = []
@@ -70,8 +84,6 @@ def postorderBST(root):
     '''
     归并框架 merge
     '''
-
-    
     return postorderlist
 
 ###层序遍历， 也是BFS的框架，比较重要的遍历方式
@@ -119,6 +131,27 @@ class Solution:
 
         return result
 
+###层序遍历进阶,
+class Solution:
+    def multiLevelOrder(self, root: TreeNode) -> List[List[int]]:
+
+        if root is None:
+            return []
+        result = []
+
+        def level_o(node, level):
+            if node is None:
+                return
+            if len(result) == level:
+                result.append([])
+            result[level].append(node.val)
+
+            for subnode in node.children:
+                level_o(subnode, level + 1)
+
+        level_o(root, 0)
+
+        return result
 
 def createBST(vallist):
     if vallist == []:
